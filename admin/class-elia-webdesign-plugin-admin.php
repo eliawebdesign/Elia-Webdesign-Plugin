@@ -20,12 +20,20 @@
  * @subpackage Elia_Webdesign_Plugin/admin
  * @author     Sebastiaan Gouw <info@elia-webdesign.nl>
  */
+
+require 'plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://elia-webdesign.nl/updates/plugins/Elia-Webdesign-Plugin.json',
+	__FILE__, //Full path to the main plugin file or functions.php.
+	'elia-webdesign-plugin'
+);
+
 class Elia_Webdesign_Plugin_Admin {
 
 	/**
 	 * The ID of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    .1
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
@@ -34,7 +42,7 @@ class Elia_Webdesign_Plugin_Admin {
 	/**
 	 * The version of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
@@ -43,7 +51,7 @@ class Elia_Webdesign_Plugin_Admin {
 	/**
 	 * Initialize the class and set its properties.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
@@ -57,7 +65,7 @@ class Elia_Webdesign_Plugin_Admin {
 	/**
 	 * Register the stylesheets for the admin area.
 	 *
-	 * @since    1.0.0
+	 * @since    0.1
 	 */
 	public function enqueue_styles() {
 
