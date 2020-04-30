@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              https://elia-webdesign.nl
- * @since             1.0.0
+ * @since             0.1.0
  * @package           Elia_Webdesign_Plugin
  *
  * @wordpress-plugin
  * Plugin Name:       Elia Webdesign Plugin
  * Plugin URI:        https://elia-webdesign.nl
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
+ * Version:           0.1.0
  * Author:            Sebastiaan Gouw
  * Author URI:        https://elia-webdesign.nl
  * License:           GPL-2.0+
@@ -29,13 +29,18 @@
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
-
+require 'plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://elia-webdesign.nl/updates/plugins/Elia-Webdesign-Plugin.json',
+	__FILE__, //Full path to the main plugin file or functions.php.
+	'elia-webdesign-plugin'
+);
 /**
  * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
+ * Start at version 0.1.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'ELIA_WEBDESIGN_PLUGIN_VERSION', '1.0.0' );
+define( 'ELIA_WEBDESIGN_PLUGIN_VERSION', '0.1.0' );
 
 /**
  * The code that runs during plugin activation.
@@ -71,7 +76,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-elia-webdesign-plugin.php'
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since    0.1.0
  */
 function run_elia_webdesign_plugin() {
 
